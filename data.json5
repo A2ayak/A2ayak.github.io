@@ -1,0 +1,123 @@
+{
+  "website": "A2ayak-硬核功能小站",
+  "social": {
+    "github": "https://github.com/A2ayak",
+    "twitter": "https://twitter.com/",
+    "linkedin": "https://www.linkedin.com/"
+  },
+  "modules": [
+    //首页模块
+    {
+      "id": "home",
+      "name": "首页",
+      "icon": "home",
+      "path": "/"
+    },
+    //博客模块
+    {
+      "id": "Blog",
+      "display": true,
+      "icon": "profile",
+      "name": "blog",
+      "title": "Blog",
+      "subtitle": "分享知识点",
+      "path": "/",
+      "notes": [
+        {
+          "title": "部署问题",
+          "date": "2020-9-16",
+          "md":
+          "首先确保后端完整依赖已经存在，node版本足够高（可以通过npm install -g n进行管理）\
+          \n**踩坑：** \
+          \n1.bcrypt5.0.0版本并不支持在centos中使用，可以更改为bcryptjs包\
+          \n2.nginx开启gzip可以优化首屏响应速度"
+        },
+        {
+          "title": "异步请求数据存入Vuex比页面渲染慢",
+          "date": "2020-9-8",
+          "md":
+          "axios请求本地JSON存入Vuex后，在其他组件直接调用数据会报渲染错误（Render Error）,或者根本获取不到数据，报找不到组件的错误，实际上是Vuex异步请求来的数据速度比页面渲染慢\
+          \n**解决方法：** \
+          \n1.首先必检查异步请求是否在action中，然后在需要获取数据的组件中通过getters获取\
+          \n2.在组件父标签中加一个v-if:\"请求数据\"即可\
+          \n3.**细节：** 使用路由懒加载优化，防止重复刷新该页面报错且获取不到数据"
+        },
+        {
+          title: "Vue项目上传服务器后刷新出现404",
+          date: "2020-08-26",
+          md:
+          "\n**打开nginx的配置文件nginx.conf**\
+           \n在location/{}中添加try_files $uri $uri/ /index.html;\
+           \n cd nginx/sbin\
+           \n ./nginx -s reload\
+           \n ./nginx -s reopen",
+        },
+        {
+          title: "Vue中computed和watch的区别",
+          date: "2020-08-30",
+          md:
+          "\n**计算属性computed**\
+          \n支持缓存，当依赖数据发生变化时才调用函数重新渲染页面，内部原理是通过一个dirty位实现缓存；不支持异步，异步会返回undefined\
+          \n主要用于值计算 \
+          \n**侦听属性watch**\
+          \n不支持缓存，页面渲染时，值不发生变化也会执行，主要用于监听props、$emit和本组件的值变化并进行异步操作\
+          \n**注：** computed和watch每个定义的属性内部都单独建立了一个watcher对象",
+        }
+      ]
+    },
+    //价格对比模块
+    {
+      id: "Chart",
+      display: true,
+      icon: "line-chart",
+      name: "chart",
+      path: "/chart",
+      chartName: "adidas Ultra Boost Rainbow White(BY1956)",
+      data: [
+        {
+          date: "Sep 14",
+          index: 599.00,
+          normalized: "27.88"
+        },
+        {
+          date: "Sep 15",
+          index: 699.00,
+          normalized: "37.88"
+        },
+        {
+          date: "Sep 16",
+          index: 799.00,
+          normalized: "47.88"
+        },
+        {
+          date: "Sep 17",
+          index: 899.00,
+          normalized: "57.88"
+        },
+        {
+          date: "Sep 18",
+          index: 799.00,
+          normalized: "47.88"
+        },
+        {
+          date: "Sep 19",
+          index: 599.00,
+          normalized: "27.88"
+        },
+        {
+          date: "Sep 20",
+          index: 699.00,
+          normalized: "37.88"
+        }
+      ]
+    },
+    //小游戏模块
+    {
+      id: "Game",
+      display: true,
+      icon: "trophy",
+      name: "game",
+      path: "/game"
+    }
+  ]
+}
