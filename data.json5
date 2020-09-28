@@ -18,7 +18,7 @@
       "id": "Blog",
       "display": true,
       "icon": "profile",
-      "name": "blog",
+      "name": "博客",
       "title": "Blog",
       "subtitle": "分享知识点",
       "path": "/",
@@ -70,7 +70,7 @@
       id: "Chart",
       display: true,
       icon: "line-chart",
-      name: "chart",
+      name: "图表",
       path: "/chart",
       chartName: "adidas Ultra Boost Rainbow White(BY1956)",
       data: [
@@ -116,7 +116,7 @@
       id: "Game",
       display: true,
       icon: "trophy",
-      name: "game",
+      name: "游戏",
       path: "/game"
     }
   ]
